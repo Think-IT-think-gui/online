@@ -1,0 +1,168 @@
+{% load static %}
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+-->
+<!doctype html>
+<html lang="zxx">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>UBuy
+	</title>
+	<!-- Template CSS -->
+	<link rel="stylesheet" href="{% static 'assets/css/style-starter.css' %}">
+	<link rel="stylesheet" href="{% static 'assets/css/css.css' %}">
+
+
+	<!-- Template CSS -->
+
+	<link href="//fonts.googleapis.com/css?family=Spartan:400,500,600,700,900&display=swap" rel="stylesheet">
+
+	<!-- Template CSS -->
+</head>
+
+<body class="cbp-spmenu-push">
+	
+		<!--/services-->
+		<!--services-2-->
+		<section class="w3l-services-2 w3l-services-1">
+			<div class="services-2-content py-5" id="services">
+				<div class="container py-lg-5 py-md-4">
+					<div style="padding-bottom: 20px;"></div>
+					<div class="title-head text-center mb-lg-5 mb-4">
+
+						<h3 class="hny-title"><span>{{comment}}</span> </h3>
+
+					</div>
+					{% for i in Info %}
+				<div class="container py-lg-5">
+					<div class="content-info-in row">
+						<div class="content-left col-lg-6">
+							<img src="../../../../static/media/Product/{{i.1}}.jpg" style="border-radius: 5px;" class="img-fluid mt-lg-0 mt-3" alt="">
+						</div>
+						<div  class="conent-right col-lg-6 pl-lg-5">
+								<div class="col-md-10 content4-right-info pl-lg-0">
+									<h6 style="padding-top: 5px;font-family:Helvetica;font-size: 20px;">{{i.1}}</h6>
+									<h7 style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Rating
+									{% for j in i.8 %}
+									<i style="font-size: 20px;padding-right: 10px ;color:#df4223; " class="fa fa-star"></i>
+									{% endfor %}
+								    </h7>
+								</div>
+								<div class="col-md-10 content4-right-info pl-lg-0">
+								    <h7 style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Time Span: <span style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">{{i.7}}</span></h7>
+									<p>{{i.5}}</span></p>
+									<h4 style="font-size: 40px;">{{i.2}}</h4>
+								</div>
+								</div style="oppacy:0.0">.</div>
+
+
+								<form action="../../../cart/o" method="post">
+									{% csrf_token %}
+
+							    <div class="banner-buttons mt-4">
+									<button style="background-color: #df4223;color: #f0f0f0d7;width: 100%;" class="btn btn-style-1 btn-primary"  type="submit"><i style="font-size: 20px;padding-right: 10px; " class="fa fa-shopping-basket"></i>Add To Cart</button>
+								</div>
+								<input type="hidden" name="Product" value="{{i.1}}" />
+								<input type="hidden" name="Ammount" value="{{i.2}}" />
+								<input type="hidden" name="Description" value="{{i.4}}" />
+								<input type="hidden" name="Status" value="New" />
+								<input type="hidden" name="User" value={{User}} />
+								<input type="hidden" name="Quantity" value=1 />
+							    </form>
+							</div>
+						</div>
+					</div>
+				</div>
+		        {% endfor %}
+				<div style="padding-top: 40px;"></div>
+
+	<section class="w3l-footer">
+
+
+		<!-- move top -->
+		<button onclick="topFunction()" id="movetop" title="Go to top">
+			<span class="fa fa-arrow-up" aria-hidden="true"></span>
+		</button>
+		<script>
+			// When the user scrolls down 20px from the top of the document, show the button
+			window.onscroll = function () {
+				scrollFunction()
+			};
+
+			function scrollFunction() {
+				if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+					document.getElementById("movetop").style.display = "block";
+				} else {
+					document.getElementById("movetop").style.display = "none";
+				}
+			}
+
+			// When the user clicks on the button, scroll to the top of the document
+			function topFunction() {
+				document.body.scrollTop = 0;
+				document.documentElement.scrollTop = 0;
+			}
+		</script>
+		<!-- /move top -->
+	</section>
+	<!-- //footer-28 block -->
+
+
+
+	</div>
+	<script src="{% static 'assets/js/jquery-3.3.1.min.js' %}"></script>
+	<!--/top-nav-->
+	<script src="{% static 'assets/js/jquery-2.1.4.min.js' %}"></script>
+	<script src="{% static 'assets/js/modernizr.custom.js' %}"></script>
+	<script src="{% static 'assets/js/classie.js' %}"></script>
+	<script>
+		var menuLeft = document.getElementById('cbp-spmenu-s1'),
+			showLeftPush = document.getElementById('showLeftPush'),
+			body = document.body;
+
+		showLeftPush.onclick = function () {
+			classie.toggle(this, 'active');
+			classie.toggle(body, 'cbp-spmenu-push-toright');
+			classie.toggle(menuLeft, 'cbp-spmenu-open');
+			disableOther('showLeftPush');
+		};
+
+		function disableOther(button) {
+			if (button !== 'showLeftPush') {
+				classie.toggle(showLeftPush, 'disabled');
+			}
+		}
+	</script>
+	<!--//top-nav-->
+	<!-- disable body scroll which navbar is in active -->
+	<script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+
+
+		<script src="{% static 'assets/js/jquery-3.3.1.min.js' %}"></script>
+	<!--/top-nav-->
+	<script src="{% static 'assets/js/jquery-2.1.4.min.js' %}"></script>
+	<script src="{% static 'assets/js/modernizr.custom.js' %}"></script>
+	<script src="{% static 'assets/js/classie.js' %}"></script>
+	<script>
+		var menuLeft = document.getElementById('cbp-spmenu-s1'),
+			showLeftPush = document.getElementById('showLeftPush'),
+			body = document.body;
+
+		showLeftPush.onclick = function () {
+			classie.toggle(this, 'active');
+			classie.toggle(body, 'cbp-spmenu-push-toright');
+			classie.toggle(menuLeft, 'cbp-spmenu-open');
+			disableOther('showLeftPush');
+		};
+
+		function disableOther(button) {
+			if (button !== 'showLeftPush') {
+				classie.toggle(showLeftPush, 'disabled');
+			}
+		}
+	</script>
+	

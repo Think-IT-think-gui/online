@@ -1,0 +1,80 @@
+{% load static %}
+
+<!doctype html>
+<html lang="zxx">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Shipstores
+	</title>
+	<!-- Template CSS -->
+	<link rel="stylesheet" href="{% static 'assets/css/style-starter.css' %}">
+	<link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+	<link href="//fonts.googleapis.com/css?family=Spartan:400,500,600,700,900&display=swap" rel="stylesheet">
+</head>
+	<div class="main buttonset">
+		<!--/tophny-header-->
+		<div class="tophny-header" style="background-color: #F5F5F5; position: fixed;border-radius: 10px;top: -7px;width: 100%; box-shadow: 0px 3px 2px #1616164d;">
+			<div class="container">
+				
+				<div class="icon-left search-right text-right">
+							
+							<div  class="icon-left search-right text-right" style="width: 100% ;height: 40px;border-radius: 30px;background-color: rgb(223, 222, 222);border-width: 0px;">
+								<span onclick="find_id()" style="padding-left: 8px;padding-right: 5px" class="fa fa-search" aria-hidden="true"></span>
+							    <input   id="in_text" required="" style="width: 100% ;height: 40px;border-radius: 30px;background-color: rgb(223, 222, 222);border-width: 0px;color: rgb(87, 87, 87);font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"
+							    type="search" placeholder="Search here" name="LookFor"
+								required="required" autofocus="">
+								<input type="hidden" name="User" value="{{User}}" />	
+							</div>
+						<a  style="padding-left: 5px;" class="topuser" href="../../../log/{{User}}" ><img src="../static/media/Clients/{{User}}.jpg?<?php echo filetime('{{User}}.jpg')" style="width:35px ;height:35px;border-radius: 100px;border-color: #F5F5F5 ;"></span></a>
+					</div>
+				
+			</div>
+		</div>
+		<iframe id="mainframe" style="position: fixed;width: 100%;height: 100%;z-index: 0;top: 40px;" src="content/{{User}}"></iframe>
+        <div style="padding-top: 20px;"></div>
+		<body1>
+			<div class="bottom-bar" style="position: fixed;bottom: 0%;width: 100%;z-index:60000; box-shadow: 3px 0px 9px #1616164d;">
+			  <a onclick="home()"><span  style="color: #293462; font-size: 30px;padding-left:5%;padding-right:5%" class="fa fa-home fa-flip"></a>
+			  </ion-icon>
+			 <a onclick="cart()"><span  style=" color: #293462;font-size: 30px;padding-left:5%;padding-right:5%" class="fa fa-shopping-cart " ></span></a>
+			  </ion-icon>
+		
+			  </ion-icon>
+			  <a onclick="cartegory()"><span  style="color: #293462; font-size: 30px;padding-left:5%;padding-right:5%;padding-top:5px;padding-bottom:5px " class="fa fa-leanpub faa-pulse" ></a>
+			  </ion-icon>
+			   <a  href="../../../set_up/{{User}}"><span  style=" font-size: 30px;padding-left:5%;padding-right:5%" class="fa fa-cog fa-spin fa-slow" ></a>
+			  </ion-icon>
+			</div>
+		  </body1>
+		</html>
+	
+
+		<script>
+
+			function set(){
+				document.getElementById("mainframe").setAttribute("src","set_up/{{User}}")
+			}
+			function cart(){
+				document.getElementById("mainframe").setAttribute("src","cart/{{User}}")
+			}
+			function home(){
+				document.getElementById("mainframe").setAttribute("src","content/{{User}}")
+			}
+			function cartegory(){
+				document.getElementById("mainframe").setAttribute("src","categories/{{User}}")
+			}
+			function find_id(){
+				var value_search = document.getElementById("in_text").value
+				
+				if (value_search == ""){
+					value_search = "a"
+				}
+				console.log(value_search)
+				document.getElementById("mainframe").setAttribute("src","Find/{{User}}/"+value_search)
+			}
+			function set_id(){
+				document.getElementById("mainframe").setAttribute("src","log/{{User}}")
+			}
+		</script>

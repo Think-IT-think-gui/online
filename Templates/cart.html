@@ -1,0 +1,250 @@
+{% load static %}
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+-->
+<!doctype html>
+<html lang="zxx">
+
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="{% static 'assets/css/css.css' %}">
+
+	<title>UBuy
+	</title>
+	<!-- Template CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+<!-- jQuery (necessary JavaScript plugins) -->
+    <script type='text/javascript' src="{% static 'js/jquery-1.11.1.min.js' %}"></script>
+<!-- Custom Theme files -->
+   <link href="{% static 'css/style.css' %}" rel='stylesheet' type='text/css' />
+   <link href="{% static 'css/menu.css' %}" rel='stylesheet' type='text/css' />
+   <link href="{% static 'css/popuo-box.css' %}" rel='stylesheet' type='text/css' />
+   <script src="{% static 'js/minicart.js' %}"></script>
+
+	<link rel="stylesheet" href="{% static 'assets/css/style-starter.css' %}">
+	<!-- Template CSS -->
+
+	<link href="//fonts.googleapis.com/css?family=Spartan:400,500,600,700,900&display=swap" rel="stylesheet">
+
+	<!-- Template CSS -->
+</head>
+
+
+
+
+
+
+		<!--/services-->
+		<!--services-2-->
+		<section class="w3l-services-2 w3l-services-1">
+			<div class="services-2-content py-5" id="services">
+				<div class="container py-lg-5 py-md-4">
+					<div style="padding-bottom: 20px;"></div>
+					<div class="title-head text-center mb-lg-5 mb-4">
+
+						<h3 class="hny-title"><span>{{stat}}</span> </h3>
+
+					</div>
+
+
+					<div class="check">
+
+
+
+						<div class="checkout-right">
+							<h4 class="mb-sm-4 mb-3"><span></span>
+							</h4>
+							<div class="table-responsive">
+								<table class="timetable_sub">
+									<thead>
+										<tr>
+											<th>Product</th>
+											<th>Quality</th>
+											<th>Name</th>
+											<th>Price</th>
+											<th>Remove</th>
+										</tr>
+									</thead>
+									
+									<tbody>
+										{% for i in cart%}
+										<tr class="rem1">
+
+											<td class="invert-image">
+												<a>
+													<img src="../static/media/Product/{{i.1}}.jpg" style="border-radius: 0px;" alt=" " class="img-responsive">
+												</a>
+											</td>
+											<td class="invert">
+												<div class="quantity">
+													<div class="quantity-select">
+
+
+														<div  id="{{i.1}}-ii" class="entry value-minus">&nbsp;</div>
+
+															<input id="{{i.1}}-iii" class="entry value" type="number" value="1" >
+
+
+
+														<div id="{{i.1}}-ii"  class="entry value-plus active">&nbsp;</div>
+													</div>
+												</div>
+											</td>
+											<td class="invert">{{i.1}}</td>
+											<td class="invert">{{i.2}}</td>
+											<form action="../../../../delete_cart" method="post">
+												{% csrf_token %}
+											    <td class="invert"><button style="width:40px;height:40px;border:0px ;border-radius: 100px;background-color: #df4223;color: #F5F5F5;font-weight: bold;" ><i style="font-size: 20px; " class="fa fa-bitbucket"></button></td>
+												<input type="hidden" name="Product" value="{{i.1}}" />
+												<input type="hidden" name="User" value="{{User}}" />
+											</form>
+										</tr>
+										
+										{% endfor %}
+										
+
+
+										<form action="/../../../pay" method="post">
+											{% csrf_token %}
+											<input type="hidden" name="User" value="{{User}}" />
+											{% for i in cart%}
+											<input type="hidden" id="{{i.1}}-2"   name="{{i.1}}-number">
+											<input type="hidden" name="{{i.1}}-amount" value="{{i.2}}">
+
+
+
+											{% endfor %}
+										    <script>
+
+
+												function test(){
+												{% for i in cart%}
+												var code = document.getElementById("{{i.1}}-iii");
+                                                var text1 = code.value
+
+											    document.getElementById("{{i.1}}-2").value = text1;
+										    	//console.log(text1);
+												{% endfor%}
+
+											}
+
+
+
+
+
+										    </script>
+											<div class="banner-buttons mt-4" style=" padding-bottom: 20px;">
+												<button style="background-color: #df4223;color: #ecececd7;width: 100%;" class="btn btn-style-1 btn-primary"  type="submit" onclick="test()" ><i style="font-size: 20px;padding-right: 10px; " class="fa fa-shopping-cart"></i>Im done! Move to checkout. </button>
+											</div>
+
+										</form>
+
+									</tbody>
+								</table>
+							</div>
+							<div style="padding-top: 30px;"></div>
+
+						</div>
+                          
+
+					</div>
+
+			   </div>
+
+
+
+	<section class="w3l-footer">
+
+
+		<!-- move top -->
+		<button onclick="topFunction()" id="movetop" title="Go to top">
+			<span class="fa fa-arrow-up" aria-hidden="true"></span>
+		</button>
+		<script>
+			// When the user scrolls down 20px from the top of the document, show the button
+			window.onscroll = function () {
+				scrollFunction()
+			};
+
+			function scrollFunction() {
+				if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+					document.getElementById("movetop").style.display = "block";
+				} else {
+					document.getElementById("movetop").style.display = "none";
+				}
+			}
+
+			// When the user clicks on the button, scroll to the top of the document
+			function topFunction() {
+				document.body.scrollTop = 0;
+				document.documentElement.scrollTop = 0;
+			}
+		</script>
+		<!-- /move top -->
+	</section>
+	<!-- //footer-28 block -->
+
+
+
+	</div>
+	<script src="{% static 'assets/js/jquery-3.3.1.min.js' %}"></script>
+	<!--/top-nav-->
+	<script src="{% static 'assets/js/jquery-2.1.4.min.js' %}"></script>
+	<script src="{% static 'assets/js/modernizr.custom.js' %}"></script>
+	<script src="{% static 'assets/js/classie.js' %}"></script>
+	<script>
+		var menuLeft = document.getElementById('cbp-spmenu-s1'),
+			showLeftPush = document.getElementById('showLeftPush'),
+			body = document.body;
+
+		showLeftPush.onclick = function () {
+			classie.toggle(this, 'active');
+			classie.toggle(body, 'cbp-spmenu-push-toright');
+			classie.toggle(menuLeft, 'cbp-spmenu-open');
+			disableOther('showLeftPush');
+		};
+
+		function disableOther(button) {
+			if (button !== 'showLeftPush') {
+				classie.toggle(showLeftPush, 'disabled');
+			}
+		}
+	</script>
+	<script>
+
+		$('.value-plus').on('click', function () {
+			var divUpdw = this.id+"i"
+
+			var f = document.getElementById(divUpdw).value
+			//console.log(f);
+			   x = parseInt(f)
+               x+=1
+
+				//console.log(divUpdw);
+				//console.log(newVal);
+				document.getElementById(divUpdw).value=x;
+
+		});
+
+		$('.value-minus').on('click', function () {
+			var divUpdw = this.id+"i"
+
+			var f = document.getElementById(divUpdw).value
+			//console.log(f);
+				newVal = f - 1;
+				//console.log(divUpdw);
+			//	console.log(newVal);
+			if (newVal >= 1) document.getElementById(divUpdw).value=newVal;
+
+
+		});
+
+	</script>
+	<!--//top-nav-->
+	<!-- disable body scroll which navbar is in active -->
+	

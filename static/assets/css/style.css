@@ -1,0 +1,28 @@
+body1{
+    margin: 0;
+    background-color: #dfdfdf;
+}
+.bottom-bar{
+    background-color: #eee;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-top: 20em;
+
+    border-radius: 20px 20px 0 0;
+}
+.icon{
+    font-size: 35px;
+
+
+    margin-top: 0;
+    transition: .5s ease-in-out;
+    border-radius: 100%;
+    border: 4px solid #eee;
+}
+.active1{
+    transform: scale(1.25) translateY(-1em);
+    background: linear-gradient(135deg, #23f,#6589ff);
+    border: 4px solid #dcdcdc;
+    color: white;
+}
