@@ -32,6 +32,8 @@ urlpatterns = [
     path('content/<str:pk>', Home_content.as_view()),
     path('log_out/<str:pk>', Log_out.as_view()),
 
+    url(r'^media/(?P<path>.*)$', serve,{'document_root':       settings.MEDIA_ROOT}), 
+    url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}), 
 
 
 
