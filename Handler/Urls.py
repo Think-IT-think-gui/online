@@ -1,5 +1,5 @@
 from django.urls import path
-from . views import Login_Api,Signup_Api,Cart_Api,Product_Api,Admin_Api,Message_Api,Home,Profile_Api,Categories_Api,Home_2,Request_Product,Rem_Cart,Account_Status,Logout,About,All,Remove_Product,Search_Api,Set_user,Set_basic,Set_pass,New_password,Set_Image,Delete_account,Validate_action,Pay,Log_out,Home_content
+from . views import Login_Api,Signup_Api,Cart_Api,Product_Api,Admin_Api,Message_Api,Home,Profile_Api,Categories_Api,Home_2,Request_Product,Rem_Cart,Account_Status,Logout,About,All,Remove_Product,Search_Api,Set_user,Set_basic,Set_pass,New_password,Set_Image,Delete_account,Validate_action,Pay,Log_out,Home_content,Home5
 from django.conf.urls.static import static
 from django.conf import settings
 urlpatterns = [
@@ -31,7 +31,7 @@ urlpatterns = [
     path('pay', Pay.as_view()),
     path('content/<str:pk>', Home_content.as_view()),
     path('log_out/<str:pk>', Log_out.as_view()),
-
+    path('test', Home5.as_view()),
     
 
 
