@@ -10,7 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 import os
-import Django_herogu
+#import Django_herogu
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -135,5 +135,5 @@ MEDIA_URL = '/media/'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
-Django_herogu.settings(locals())
+#Django_herogu.settings(locals())
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
