@@ -201,8 +201,10 @@ class Pay(APIView):
 
 
 
-
-
+class Home5(APIView):
+    def get(self , request):
+      return Response('sdfdsfdsf')    
+ 
 
 
 
